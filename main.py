@@ -5,6 +5,13 @@ ChatGPT, to simulate a patient calling the Pretty Good AI test line.
 Twilio records the entire call automatically.
 """
 
+# WALKTHROUGH NARRATION:
+# This file is the FastAPI server. It acts as the brain of the patient bot.
+# Twilio calls our /twiml endpoint when the call starts, /respond every time the agent speaks,
+# /status when the call ends, and /recording when the audio recording is ready.
+# We send the conversation to OpenAI ChatGPT so it can reply as the patient.
+# We also save transcripts and download recordings after every call.
+
 import json
 import os
 import requests
@@ -19,10 +26,13 @@ from twilio.twiml.voice_response import VoiceResponse, Gather
 
 from scenarios import SCENARIOS
 
+# Load environment variables from .env (credentials and URLs)
 load_dotenv()
 
+# FastAPI app that handles Twilio webhooks
 app = FastAPI()
 
+# Credentials loaded from .env
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
@@ -30,22 +40,25 @@ FROM_PHONE = os.getenv("FROM_PHONE")
 TO_PHONE = os.getenv("TO_PHONE")
 PUBLIC_URL = os.getenv("PUBLIC_URL", "localhost")
 
+# Directory where transcripts and recordings are saved
 CALL_DIR = Path("calls")
 CALL_DIR.mkdir(exist_ok=True)
 
 if not all([OPENAI_API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, FROM_PHONE, TO_PHONE, PUBLIC_URL]):
     print("Warning: Missing required environment variables. Check .env.example")
 
-# In-memory conversation state
+# In-memory conversation state: one chat history per call
 conversations = {}
 recording_urls = {}
 
 
 def get_scenario(key: str):
+    # Look up the scenario by key; fall back to the first scenario if not found
     return next((s for s in SCENARIOS if s["key"] == key), SCENARIOS[0])
 
 
 def build_system_prompt(scenario: dict) -> str:
+    # This prompt is sent to ChatGPT so it acts as the patient with the right goal and details
     return f"""You are a PATIENT calling a medical practice. You are the caller, not the receptionist.
 
 SCENARIO: {scenario['title']}
@@ -66,7 +79,7 @@ CRITICAL RULES:
 
 
 def initial_greeting(scenario: dict) -> str:
-    """Generate the first thing the patient says."""
+    """Generate the first thing the patient says when the call connects."""
     key = scenario["key"]
     if "checkup" in key:
         return "Hi, I'd like to schedule a checkup appointment."
@@ -93,7 +106,7 @@ def initial_greeting(scenario: dict) -> str:
 
 
 def chatgpt_response(call_id: str, agent_text: str, scenario: dict) -> str:
-    """Get a response from ChatGPT for the patient bot."""
+    """Send the conversation history to OpenAI ChatGPT and return the patient response."""
     history = conversations.setdefault(call_id, [])
 
     if not history:
@@ -125,7 +138,7 @@ def chatgpt_response(call_id: str, agent_text: str, scenario: dict) -> str:
 
 
 def should_end_call(bot_text: str, turn_count: int) -> bool:
-    """Decide if the bot should hang up."""
+    """End the call after 8 turns or if the patient says goodbye/thanks."""
     if turn_count >= 8:
         return True
     text_lower = bot_text.lower()
@@ -135,13 +148,15 @@ def should_end_call(bot_text: str, turn_count: int) -> bool:
 
 
 def build_response_twiml(scenario: str, call_id: str, bot_text: str, end_call: bool = False) -> str:
-    """Build TwiML with the bot's response and a gather for the next turn."""
+    """Build TwiML that speaks the patient response and listens for the agent's next reply."""
     response = VoiceResponse()
+    # Twilio text-to-speech: read the patient response out loud
     response.say(bot_text, voice="Polly.Joanna")
 
     if end_call:
         response.hangup()
     else:
+        # Gather listens for the agent's speech and sends it back to /respond
         gather = Gather(
             input="speech",
             speech_timeout="auto",
@@ -151,6 +166,7 @@ def build_response_twiml(scenario: str, call_id: str, bot_text: str, end_call: b
             language="en-US"
         )
         response.append(gather)
+        # Fallback message if the agent does not speak before the gather times out
         response.say("I didn't catch that. I'll call back later. Goodbye.", voice="Polly.Joanna")
         response.hangup()
 
@@ -160,16 +176,19 @@ def build_response_twiml(scenario: str, call_id: str, bot_text: str, end_call: b
 @app.get("/twiml")
 @app.post("/twiml")
 def twiml(scenario: str, call_id: str):
-    """Serve initial TwiML: greet and gather agent's response."""
+    """First webhook: Twilio fetches this when the call connects.
+    It returns instructions to speak the patient greeting and listen for the agent."""
     response = VoiceResponse()
     scenario_obj = get_scenario(scenario)
     greeting = initial_greeting(scenario_obj)
 
-    # Initialize conversation
+    # Initialize the conversation history for this call
     conversations[call_id] = [{"role": "system", "content": build_system_prompt(scenario_obj)}]
 
+    # Patient says the opening line
     response.say(greeting, voice="Polly.Joanna")
 
+    # Listen for the agent's response
     gather = Gather(
         input="speech",
         speech_timeout="auto",
@@ -187,18 +206,21 @@ def twiml(scenario: str, call_id: str):
 
 @app.post("/respond")
 def respond(scenario: str, call_id: str, SpeechResult: Optional[str] = Form(None)):
-    """Handle agent's speech, generate bot response, return TwiML."""
+    """Main conversation loop: Twilio sends the agent's speech here,
+    we ask ChatGPT for a patient response, and return TwiML to continue the call."""
     scenario_obj = get_scenario(scenario)
     agent_text = SpeechResult or ""
 
     print(f"[Call {call_id}] Agent said: {agent_text}")
 
+    # Get the patient response from ChatGPT
     bot_text = chatgpt_response(call_id, agent_text, scenario_obj)
     print(f"[Call {call_id}] Bot says: {bot_text}")
 
-    # Save transcript after each turn so we don't lose data if callback fails
+    # Save transcript after each turn so we don't lose data if a callback fails
     save_transcript(call_id)
 
+    # Decide whether to end the call based on the response or turn count
     turn_count = len([m for m in conversations.get(call_id, []) if m["role"] == "assistant"])
     end_call = should_end_call(bot_text, turn_count)
 
@@ -207,7 +229,7 @@ def respond(scenario: str, call_id: str, SpeechResult: Optional[str] = Form(None
 
 @app.post("/status")
 def status(call_id: Optional[str] = Query(None), CallStatus: Optional[str] = Form(None)):
-    """Handle call status callbacks. Save transcript when call ends."""
+    """Twilio calls this when the call ends. We save the final transcript here."""
     if call_id and CallStatus in ("completed", "failed", "busy", "no-answer"):
         save_transcript(call_id)
         print(f"[Call {call_id}] Call ended with status: {CallStatus}")
@@ -216,7 +238,7 @@ def status(call_id: Optional[str] = Query(None), CallStatus: Optional[str] = For
 
 @app.post("/recording")
 def recording(call_id: Optional[str] = Query(None), RecordingUrl: Optional[str] = Form(None), RecordingDuration: Optional[str] = Form(None)):
-    """Handle recording callback and download the recording."""
+    """Twilio calls this when the recording is ready. We download the WAV file."""
     if call_id and RecordingUrl:
         recording_urls[call_id] = RecordingUrl
         download_recording(call_id, RecordingUrl, RecordingDuration)
@@ -224,11 +246,12 @@ def recording(call_id: Optional[str] = Query(None), RecordingUrl: Optional[str] 
 
 
 def download_recording(call_id: str, url: str, duration: Optional[str] = None):
-    """Download the Twilio recording as WAV."""
+    """Download the Twilio recording as a WAV file using Twilio credentials."""
     call_dir = CALL_DIR / call_id
     call_dir.mkdir(parents=True, exist_ok=True)
 
     try:
+        # Twilio recordings are protected, so we pass auth credentials
         response = requests.get(
             f"{url}.wav",
             auth=(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN),
@@ -240,6 +263,7 @@ def download_recording(call_id: str, url: str, duration: Optional[str] = None):
         recording_path.write_bytes(response.content)
         print(f"[Call {call_id}] Downloaded recording: {recording_path} ({len(response.content)} bytes)")
 
+        # Save metadata about the recording
         meta_path = call_dir / "recording_meta.json"
         with open(meta_path, "w") as f:
             json.dump({
@@ -252,11 +276,12 @@ def download_recording(call_id: str, url: str, duration: Optional[str] = None):
 
 
 def save_transcript(call_id: str):
-    """Save the conversation transcript to a file."""
+    """Save the conversation as a readable transcript and full chat history."""
     call_dir = CALL_DIR / call_id
     call_dir.mkdir(parents=True, exist_ok=True)
 
     history = conversations.get(call_id, [])
+    # Map ChatGPT roles to human roles for readability
     transcript = []
     for msg in history:
         if msg["role"] == "user":
