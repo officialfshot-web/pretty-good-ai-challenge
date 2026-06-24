@@ -1,0 +1,42 @@
+[
+  {
+    "role": "agent",
+    "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Alex?"
+  },
+  {
+    "role": "patient",
+    "text": "No, this is Jordan Smith. I\u2019d like to reschedule my appointment, please."
+  },
+  {
+    "role": "agent",
+    "text": "Please provide the full name and date of birth of the patient. You'd like to reschedule for"
+  },
+  {
+    "role": "patient",
+    "text": "Sure, my name is Jordan Smith and my date of birth is November 4, 1995."
+  },
+  {
+    "role": "agent",
+    "text": "Just to confirm, I have. Your name is Jordan Smith and your date of birth is November 4th. 1995, is that correct?"
+  },
+  {
+    "role": "patient",
+    "text": "Yes, that's correct."
+  },
+  {
+    "role": "agent",
+    "text": "Would you like to use your phone number to look up your record? If so, please tell me the number you have on file with us, if you're not sure, I can confirm your name and date of birth. Again,"
+  },
+  {
+    "role": "patient",
+    "text": "You can use my phone number, which is 555-123-4567."
+  },
+  {
+    "role": "agent",
+    "text": "I have your phone number is 5551234567 and your date of birth is November 4th. 1995, is that correct?"
+  },
+  {
+    "role": "patient",
+    "text": "Yes, that's correct."
+  }
+]

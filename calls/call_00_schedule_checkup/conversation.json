@@ -1,0 +1,30 @@
+[
+  {
+    "role": "system",
+    "content": "You are a patient calling a medical practice. You are testing the AI receptionist.\n\nSCENARIO: Schedule a routine checkup\nYOUR GOAL: Schedule an annual checkup appointment for next week, preferably in the morning.\nYOUR DETAILS: You are Alex Rivera, DOB 03/12/1988. You have been a patient at the practice for 2 years. You want a morning slot if available.\n\nRULES:\n- Speak naturally and concisely, like a real patient on the phone.\n- Keep responses to 1-2 sentences.\n- Provide realistic fake information when asked (name, DOB, phone, etc.).\n- If the agent makes a mistake, you can correct them politely.\n- Do not be aggressive or rude.\n- If the agent says goodbye or the goal is complete, say goodbye and end.\n- Do not repeat yourself unless the agent asks.\n"
+  },
+  {
+    "role": "user",
+    "content": "Purposes. But"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello, I would like to schedule a routine checkup appointment for next week, preferably in the morning. My name is Alex Rivera, and my date of birth is March 12, 1988."
+  },
+  {
+    "role": "user",
+    "content": "Please provide your last name along with your date of birth."
+  },
+  {
+    "role": "assistant",
+    "content": "My last name is Rivera, and my date of birth is March 12, 1988."
+  },
+  {
+    "role": "user",
+    "content": "Just to confirm, I have your name is Vera Rivera and your date of birth as March. 12th 1988. Is that correct?"
+  },
+  {
+    "role": "assistant",
+    "content": "Actually, it's Alex Rivera, not Vera. My date of birth is correct, March 12, 1988."
+  }
+]

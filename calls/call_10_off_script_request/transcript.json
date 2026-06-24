@@ -1,0 +1,26 @@
+[
+  {
+    "role": "agent",
+    "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+  },
+  {
+    "role": "patient",
+    "text": "Hi, this is Quinn Miller. I\u2019d like to schedule a checkup, but I also need to know if I can bring my emotional support dog to the appointment."
+  },
+  {
+    "role": "agent",
+    "text": "Can you please provide the full name and date of birth of the patient needing the checkup?"
+  },
+  {
+    "role": "patient",
+    "text": "Sure, it's Quinn Miller, and my date of birth is June 17, 1994."
+  },
+  {
+    "role": "agent",
+    "text": "Just to confirm, I have your name as Gwen Miller and your date of birth as June 17th."
+  },
+  {
+    "role": "patient",
+    "text": "Actually, it's Quinn Miller, not Gwen. Thank you for correcting that!"
+  }
+]

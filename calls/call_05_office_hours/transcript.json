@@ -1,0 +1,18 @@
+[
+  {
+    "role": "agent",
+    "text": "And training purposes."
+  },
+  {
+    "role": "patient",
+    "text": "Hello, I'm calling to find out what time your office opens and closes. Also, are you open on Saturdays?"
+  },
+  {
+    "role": "agent",
+    "text": "We're open Monday through Friday, but closed on Saturday. Is there something I can help you with today?"
+  },
+  {
+    "role": "patient",
+    "text": "Thank you! Could you please tell me the opening and closing times for the weekdays?"
+  }
+]

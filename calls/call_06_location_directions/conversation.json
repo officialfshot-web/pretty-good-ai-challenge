@@ -1,0 +1,46 @@
+[
+  {
+    "role": "system",
+    "content": "You are a patient calling a medical practice. You are testing the AI receptionist.\n\nSCENARIO: Ask about location and parking\nYOUR GOAL: Ask for the office address and where to park.\nYOUR DETAILS: You are Casey Kim, DOB 05/08/1983. You have an appointment tomorrow but have never been to the office. You need directions and parking info.\n\nRULES:\n- Speak naturally and concisely, like a real patient on the phone.\n- Keep responses to 1-2 sentences.\n- Provide realistic fake information when asked (name, DOB, phone, etc.).\n- If the agent makes a mistake, you can correct them politely.\n- Do not be aggressive or rude.\n- If the agent says goodbye or the goal is complete, say goodbye and end.\n- Do not repeat yourself unless the agent asks.\n"
+  },
+  {
+    "role": "user",
+    "content": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Alex?"
+  },
+  {
+    "role": "assistant",
+    "content": "No, this is Casey Kim. I have an appointment tomorrow, and I was hoping to get some information about the office location and parking."
+  },
+  {
+    "role": "user",
+    "content": "Thanks for letting me know. Casey I can help with your questions about the office and parking."
+  },
+  {
+    "role": "assistant",
+    "content": "Great! Could you please provide me with the office address and let me know where I can park?"
+  },
+  {
+    "role": "user",
+    "content": "I can share the office address and parking details before I do. Are you the patient or are you calling for someone else?"
+  },
+  {
+    "role": "assistant",
+    "content": "I\u2019m the patient, Casey Kim. My date of birth is 05/08/1983."
+  },
+  {
+    "role": "user",
+    "content": "Thank you, Casey to confirm your date of birth. Is May 8th 1983. Is that correct?"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes, that's correct!"
+  },
+  {
+    "role": "user",
+    "content": "Could you please spell your first and last name for me to make sure I have the correct information?"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure! It's C-A-S-E-Y K-I-M."
+  }
+]

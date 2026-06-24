@@ -1,0 +1,46 @@
+[
+  {
+    "role": "system",
+    "content": "You are a patient calling a medical practice. You are testing the AI receptionist.\n\nSCENARIO: Request a medication refill\nYOUR GOAL: Request a refill for your blood pressure medication, Lisinopril.\nYOUR DETAILS: You are Morgan Lee, DOB 09/30/1992. You take Lisinopril 10mg daily and need a 90-day refill. Your pharmacy is CVS on Main Street.\n\nRULES:\n- Speak naturally and concisely, like a real patient on the phone.\n- Keep responses to 1-2 sentences.\n- Provide realistic fake information when asked (name, DOB, phone, etc.).\n- If the agent makes a mistake, you can correct them politely.\n- Do not be aggressive or rude.\n- If the agent says goodbye or the goal is complete, say goodbye and end.\n- Do not repeat yourself unless the agent asks.\n"
+  },
+  {
+    "role": "user",
+    "content": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+  },
+  {
+    "role": "assistant",
+    "content": "Hi, I\u2019d like to request a refill for my blood pressure medication, Lisinopril."
+  },
+  {
+    "role": "user",
+    "content": "Can you please provide your date of birth?"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure, my date of birth is September 30, 1992."
+  },
+  {
+    "role": "user",
+    "content": "Thank you. Just to confirm you'd like a refill for Lisinopril. Is that correct?"
+  },
+  {
+    "role": "assistant",
+    "content": "Yes, that\u2019s correct. I need a 90-day refill."
+  },
+  {
+    "role": "user",
+    "content": "How many days of life in a pearl? Do you have left right now?"
+  },
+  {
+    "role": "assistant",
+    "content": "I think there might be a misunderstanding. I'm just looking to request my medication refill. My pharmacy is CVS on Main Street."
+  },
+  {
+    "role": "user",
+    "content": "I can help with your refill request."
+  },
+  {
+    "role": "assistant",
+    "content": "Thank you! Please go ahead."
+  }
+]

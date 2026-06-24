@@ -1,0 +1,42 @@
+[
+  {
+    "role": "agent",
+    "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+  },
+  {
+    "role": "patient",
+    "text": "Hi, I need to cancel my appointment scheduled for tomorrow. My name is Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "agent",
+    "text": "Can you please confirm the full name and date of birth of the patient whose appointment needs to be canceled?"
+  },
+  {
+    "role": "patient",
+    "text": "Sure, it's Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "agent",
+    "text": "Just to make sure I have it, right. Can you please spell your first and last name for me?"
+  },
+  {
+    "role": "patient",
+    "text": "Of course, it's T-A-Y-L-O-R B-R-O-W-N."
+  },
+  {
+    "role": "agent",
+    "text": "Would you like me to look up your record using the phone number you have on file with us? If so, please tell me that number, if you're not sure, I can confirm your name and date of birth. Again"
+  },
+  {
+    "role": "patient",
+    "text": "I\u2019d prefer to confirm my name and date of birth. It\u2019s Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "agent",
+    "text": "I can't cancel the appointment right now, but I can connect you to our patient support team for help. Please stay on the line while I have your call."
+  },
+  {
+    "role": "patient",
+    "text": "Actually, I just need to cancel the appointment. Could you please confirm if I need to call back to reschedule?"
+  }
+]

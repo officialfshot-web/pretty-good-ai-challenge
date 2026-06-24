@@ -1,0 +1,26 @@
+[
+  {
+    "role": "agent",
+    "text": "And training purposes."
+  },
+  {
+    "role": "patient",
+    "text": "Could you tell me what time your office opens and closes? Also, are you open on Saturdays?"
+  },
+  {
+    "role": "agent",
+    "text": "The clinic is not open on Saturdays. If a point Orthopedics is open Monday through Friday, is there something else I can help you with?"
+  },
+  {
+    "role": "patient",
+    "text": "What time do you open and close on weekdays?"
+  },
+  {
+    "role": "agent",
+    "text": "Pivot Point Orthopedics is open from 9:00 a.m. to 4:00 p.m. on Monday Tuesday and Thursday from 12:00 p.m. to 7:00 p.m. on Wednesday and from 9 a.m. to 12:00 p.m. on Friday"
+  },
+  {
+    "role": "patient",
+    "text": "Got it, thank you. So just to confirm, you're closed on Saturdays and have varying hours during the week. Thanks for the information! Goodbye."
+  }
+]

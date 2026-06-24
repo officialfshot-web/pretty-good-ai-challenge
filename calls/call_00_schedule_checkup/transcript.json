@@ -1,0 +1,26 @@
+[
+  {
+    "role": "agent",
+    "text": "Purposes. But"
+  },
+  {
+    "role": "patient",
+    "text": "Hello, I would like to schedule a routine checkup appointment for next week, preferably in the morning. My name is Alex Rivera, and my date of birth is March 12, 1988."
+  },
+  {
+    "role": "agent",
+    "text": "Please provide your last name along with your date of birth."
+  },
+  {
+    "role": "patient",
+    "text": "My last name is Rivera, and my date of birth is March 12, 1988."
+  },
+  {
+    "role": "agent",
+    "text": "Just to confirm, I have your name is Vera Rivera and your date of birth as March. 12th 1988. Is that correct?"
+  },
+  {
+    "role": "patient",
+    "text": "Actually, it's Alex Rivera, not Vera. My date of birth is correct, March 12, 1988."
+  }
+]

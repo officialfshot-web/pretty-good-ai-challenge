@@ -1,0 +1,42 @@
+[
+  {
+    "role": "agent",
+    "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good AI. Am I speaking with Alex?"
+  },
+  {
+    "role": "patient",
+    "text": "No, this is Casey Kim. I have an appointment tomorrow, and I was hoping to get some information about the office location and parking."
+  },
+  {
+    "role": "agent",
+    "text": "Thanks for letting me know. Casey I can help with your questions about the office and parking."
+  },
+  {
+    "role": "patient",
+    "text": "Great! Could you please provide me with the office address and let me know where I can park?"
+  },
+  {
+    "role": "agent",
+    "text": "I can share the office address and parking details before I do. Are you the patient or are you calling for someone else?"
+  },
+  {
+    "role": "patient",
+    "text": "I\u2019m the patient, Casey Kim. My date of birth is 05/08/1983."
+  },
+  {
+    "role": "agent",
+    "text": "Thank you, Casey to confirm your date of birth. Is May 8th 1983. Is that correct?"
+  },
+  {
+    "role": "patient",
+    "text": "Yes, that's correct!"
+  },
+  {
+    "role": "agent",
+    "text": "Could you please spell your first and last name for me to make sure I have the correct information?"
+  },
+  {
+    "role": "patient",
+    "text": "Sure! It's C-A-S-E-Y K-I-M."
+  }
+]

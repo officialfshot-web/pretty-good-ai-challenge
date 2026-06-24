@@ -1,0 +1,11 @@
+.env
+venv/
+__pycache__/
+*.pyc
+.DS_Store
+calls/*/inbound.ulaw
+calls/*/outbound.ulaw
+calls/*/*.wav
+*.log
+ngrok
+ngrok.zip

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "agent",
+    "text": "Training purposes."
+  },
+  {
+    "role": "patient",
+    "text": "I'm sorry, I can only assist with medical practice inquiries. How can I help you today?"
+  },
+  {
+    "role": "agent",
+    "text": "I can help with general questions about the Clinic. Appointments patient, cases medication, refills and insurance. What do you need help with today?"
+  },
+  {
+    "role": "patient",
+    "text": "Hi, this is Riley Patel. I recently switched to Aetna insurance, and I wanted to confirm if your practice accepts it before I book an appointment."
+  },
+  {
+    "role": "agent",
+    "text": "can you please provide the full name and date of birth of the patient you are asking about"
+  },
+  {
+    "role": "patient",
+    "text": "Sure, my name is Riley Patel, and my date of birth is December 19, 1990."
+  }
+]

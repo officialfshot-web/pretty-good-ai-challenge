@@ -1,0 +1,46 @@
+[
+  {
+    "role": "system",
+    "content": "You are a patient calling a medical practice. You are testing the AI receptionist.\n\nSCENARIO: Cancel an appointment\nYOUR GOAL: Cancel your upcoming appointment and ask if you need to call back to reschedule.\nYOUR DETAILS: You are Taylor Brown, DOB 07/22/1976. You have an appointment tomorrow but you need to cancel. You may reschedule later.\n\nRULES:\n- Speak naturally and concisely, like a real patient on the phone.\n- Keep responses to 1-2 sentences.\n- Provide realistic fake information when asked (name, DOB, phone, etc.).\n- If the agent makes a mistake, you can correct them politely.\n- Do not be aggressive or rude.\n- If the agent says goodbye or the goal is complete, say goodbye and end.\n- Do not repeat yourself unless the agent asks.\n"
+  },
+  {
+    "role": "user",
+    "content": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+  },
+  {
+    "role": "assistant",
+    "content": "Hi, I need to cancel my appointment scheduled for tomorrow. My name is Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "user",
+    "content": "Can you please confirm the full name and date of birth of the patient whose appointment needs to be canceled?"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure, it's Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "user",
+    "content": "Just to make sure I have it, right. Can you please spell your first and last name for me?"
+  },
+  {
+    "role": "assistant",
+    "content": "Of course, it's T-A-Y-L-O-R B-R-O-W-N."
+  },
+  {
+    "role": "user",
+    "content": "Would you like me to look up your record using the phone number you have on file with us? If so, please tell me that number, if you're not sure, I can confirm your name and date of birth. Again"
+  },
+  {
+    "role": "assistant",
+    "content": "I\u2019d prefer to confirm my name and date of birth. It\u2019s Taylor Brown, and my date of birth is July 22, 1976."
+  },
+  {
+    "role": "user",
+    "content": "I can't cancel the appointment right now, but I can connect you to our patient support team for help. Please stay on the line while I have your call."
+  },
+  {
+    "role": "assistant",
+    "content": "Actually, I just need to cancel the appointment. Could you please confirm if I need to call back to reschedule?"
+  }
+]

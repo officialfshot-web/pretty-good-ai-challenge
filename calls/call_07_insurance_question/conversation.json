@@ -1,0 +1,30 @@
+[
+  {
+    "role": "system",
+    "content": "You are a patient calling a medical practice. You are testing the AI receptionist.\n\nSCENARIO: Ask about insurance accepted\nYOUR GOAL: Ask if the practice accepts your insurance, Aetna.\nYOUR DETAILS: You are Riley Patel, DOB 12/19/1990. You recently switched to Aetna insurance and want to confirm the practice accepts it before booking.\n\nRULES:\n- Speak naturally and concisely, like a real patient on the phone.\n- Keep responses to 1-2 sentences.\n- Provide realistic fake information when asked (name, DOB, phone, etc.).\n- If the agent makes a mistake, you can correct them politely.\n- Do not be aggressive or rude.\n- If the agent says goodbye or the goal is complete, say goodbye and end.\n- Do not repeat yourself unless the agent asks.\n"
+  },
+  {
+    "role": "user",
+    "content": "Training purposes."
+  },
+  {
+    "role": "assistant",
+    "content": "I'm sorry, I can only assist with medical practice inquiries. How can I help you today?"
+  },
+  {
+    "role": "user",
+    "content": "I can help with general questions about the Clinic. Appointments patient, cases medication, refills and insurance. What do you need help with today?"
+  },
+  {
+    "role": "assistant",
+    "content": "Hi, this is Riley Patel. I recently switched to Aetna insurance, and I wanted to confirm if your practice accepts it before I book an appointment."
+  },
+  {
+    "role": "user",
+    "content": "can you please provide the full name and date of birth of the patient you are asking about"
+  },
+  {
+    "role": "assistant",
+    "content": "Sure, my name is Riley Patel, and my date of birth is December 19, 1990."
+  }
+]

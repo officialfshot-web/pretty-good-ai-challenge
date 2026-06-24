@@ -1,0 +1,42 @@
+[
+  {
+    "role": "agent",
+    "text": "Thanks for calling Pivot Point Orthopedics. Part of pretty good. AI."
+  },
+  {
+    "role": "patient",
+    "text": "Hi, I\u2019d like to request a refill for my blood pressure medication, Lisinopril."
+  },
+  {
+    "role": "agent",
+    "text": "Can you please provide your date of birth?"
+  },
+  {
+    "role": "patient",
+    "text": "Sure, my date of birth is September 30, 1992."
+  },
+  {
+    "role": "agent",
+    "text": "Thank you. Just to confirm you'd like a refill for Lisinopril. Is that correct?"
+  },
+  {
+    "role": "patient",
+    "text": "Yes, that\u2019s correct. I need a 90-day refill."
+  },
+  {
+    "role": "agent",
+    "text": "How many days of life in a pearl? Do you have left right now?"
+  },
+  {
+    "role": "patient",
+    "text": "I think there might be a misunderstanding. I'm just looking to request my medication refill. My pharmacy is CVS on Main Street."
+  },
+  {
+    "role": "agent",
+    "text": "I can help with your refill request."
+  },
+  {
+    "role": "patient",
+    "text": "Thank you! Please go ahead."
+  }
+]
