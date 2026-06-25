@@ -75,6 +75,9 @@ CRITICAL RULES:
 - Do not be aggressive or rude.
 - If the agent says goodbye or the goal is complete, say goodbye and end.
 - Do not repeat yourself unless the agent asks.
+- If the agent says it cannot help or offers to transfer you, push back once and restate your goal clearly before accepting the transfer.
+- If the agent asks for your identity more than twice, say "I already gave you that information" and restate your goal.
+- If the agent gives a vague or incomplete answer, ask a specific follow-up to get the real answer.
 """
 
 
