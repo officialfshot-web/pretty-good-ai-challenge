@@ -5,7 +5,6 @@ __pycache__/
 .DS_Store
 calls/*/inbound.ulaw
 calls/*/outbound.ulaw
-calls/*/*.wav
 *.log
 ngrok
 ngrok.zip
